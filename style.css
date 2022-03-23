@@ -1,3 +1,20 @@
-html{
-    background-color: #5284b6;
+html {
+  font-family: "Nunito", sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: auto;
+  gap: 25px;
+}
+
+.select-btn {
+  border: solid black 2px;
+  padding: 14px;
+}
+
+.select-btn:hover {
+  padding: 2px;
+  background-color: #f99e91;
 }

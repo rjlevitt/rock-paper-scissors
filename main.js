@@ -60,5 +60,18 @@ function fullGame(){
 
 }
 
+// find selection buttons
+const btn = document.querySelectorAll('.select-btn');
+
+console.log(btn)
+
+let test;
+// loop through each button and add listeners
+btn.forEach((tile) => {
+  tile.addEventListener('click', (e) => {
+    console.log(e.target.className)
+  });
+});
+
 // play game
-fullGame()
+// fullGame()
