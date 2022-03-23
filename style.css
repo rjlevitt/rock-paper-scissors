@@ -18,3 +18,8 @@ html {
   padding: 2px;
   background-color: #f99e91;
 }
+
+.choice {
+  color: #4974a4;
+  text-transform: capitalize;
+}

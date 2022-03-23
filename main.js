@@ -8,26 +8,28 @@ function computerPlay() {
 function rockPaperScissors(player, computer){
         // evaluate game outcome based on player and computer choice
         if((player==='rock'&&computer=='rock') || (player==='paper'&&computer=='paper') || (player==='scissors'&&computer=='scissors')){
-          return "tie"
+          return `Hmmmmm, it's a tie you both chose ${computer}.`
         }else if((player==='rock'&&computer=='scissors') || (player==='paper'&&computer=='rock') || (player==='scissors'&&computer=='paper')){
-          return "user"
+          return `You won! Amazing. You chose ${player} and the dumb computer chose ${computer}.`
         }else if((player==='scissors'&&computer=='rock') || (player==='rock'&&computer=='paper') || (player==='paper'&&computer=='scissors')){
-          return "computer"
+          return `Oh no! You lost. You chose ${player} and the computer chose ${computer}.`
         }else{
           return "error"
         }
 }
 
-function playGame(){
+function playGame(playerChoice){
   // generate computer choice, prompt user for their choice, evaluate outcome, and return results
   let computerChoice = computerPlay();
-  let playerChoice = window.prompt("Please choose either 'Rock', 'Paper', or 'Scissors'");
   playerChoice = playerChoice.toLowerCase();
 
-  console.log("Computer Choice: " + computerChoice);
-  console.log("Player Choice: " + playerChoice);
-
   let results = rockPaperScissors(playerChoice, computerChoice);
+
+
+  const restultOutput = document.querySelector('#results');
+  restultOutput.textContent = results
+
+  console.log(results)
   return results
 }
 
@@ -60,18 +62,12 @@ function fullGame(){
 
 }
 
-// find selection buttons
-const btn = document.querySelectorAll('.select-btn');
-
-console.log(btn)
-
-let test;
-// loop through each button and add listeners
-btn.forEach((tile) => {
-  tile.addEventListener('click', (e) => {
-    console.log(e.target.className)
+// loop through each button and add event listener
+const choiceSet = ["rock", "paper", "scissors"]
+for(let i=0; i<choiceSet.length; i++){
+  const btn = document.getElementById(choiceSet[i]);
+  btn.addEventListener('click', () => {
+    // trigger game on selection
+    playGame(choiceSet[i])
   });
-});
-
-// play game
-// fullGame()
+}
