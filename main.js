@@ -4,8 +4,20 @@ function computerPlay() {
     return gameChoices[Math.floor(Math.random() * 2.9)];
   }
 
+function gameResults(player, computer){
+  // evaluate game outcome based on player and computer choice
+  if((player==='rock'&&computer=='rock') || (player==='paper'&&computer=='paper') || (player==='scissors'&&computer=='scissors')){
+    return 'tie'
+  }else if((player==='rock'&&computer=='scissors') || (player==='paper'&&computer=='rock') || (player==='scissors'&&computer=='paper')){
+    return 'user'
+  }else if((player==='scissors'&&computer=='rock') || (player==='rock'&&computer=='paper') || (player==='paper'&&computer=='scissors')){
+    return 'computer'
+  }else{
+    return "error"
+  }
+}
 
-function rockPaperScissors(player, computer){
+function printResults(player, computer){
         // evaluate game outcome based on player and computer choice
         if((player==='rock'&&computer=='rock') || (player==='paper'&&computer=='paper') || (player==='scissors'&&computer=='scissors')){
           return `Hmmmmm, it's a tie you both chose ${computer}.`
@@ -18,56 +30,60 @@ function rockPaperScissors(player, computer){
         }
 }
 
+
+
 function playGame(playerChoice){
+  
   // generate computer choice, prompt user for their choice, evaluate outcome, and return results
   let computerChoice = computerPlay();
   playerChoice = playerChoice.toLowerCase();
 
-  let results = rockPaperScissors(playerChoice, computerChoice);
-
-
+  // print results to the screen
   const restultOutput = document.querySelector('#results');
-  restultOutput.textContent = results
+  restultOutput.textContent = printResults(playerChoice, computerChoice);
 
-  console.log(results)
-  return results
+  return gameResults(playerChoice, computerChoice)
 }
 
-function fullGame(){
-
-  console.log("Let's Play Rock Paper Scissors!");
- 
-  // keep track of user and computer score
-  let userCount = 0;
-  let computerCount = 0;
-
-  for(let i=0; i<5; i++){
-    // loop through game play
-
-    let gameResults=playGame();
-
-    if(gameResults==="user"){
-      userCount +=1;
-    }
-    if(gameResults==="computer"){
-      computerCount +=1;
-    }
-
-    console.log(gameResults)
-  }
-
-  // print final tallies
-  console.log("User score: " + userCount);
-  console.log("Compter score: " + computerCount);
-
-}
 
 // loop through each button and add event listener
 const choiceSet = ["rock", "paper", "scissors"]
+let userCount = 0;
+let computerCount = 0;
+
 for(let i=0; i<choiceSet.length; i++){
   const btn = document.getElementById(choiceSet[i]);
   btn.addEventListener('click', () => {
-    // trigger game on selection
-    playGame(choiceSet[i])
+    
+
+    let gameResult = playGame(choiceSet[i])
+    
+    if(gameResult==="user"){
+      userCount +=1;
+    }
+    if(gameResult==="computer"){
+      computerCount +=1;
+    }
+
+    const userScore = document.querySelector('#user-score');
+    userScore.textContent = `User Score: ${userCount}`
+    
+    const computerScore = document.querySelector('#computer-score');
+    computerScore.textContent = `Computer Score: ${computerCount}`
+
+    if(userCount===5 || computerCount==5){
+      
+      const restultOutput = document.querySelector('#results');
+      if(computerCount>userCount){
+        restultOutput.textContent = "Game Over Mother Fucker. You lost.";
+      }else{
+        restultOutput.textContent = "Game Over. You beat the roobits!";
+      }
+
+      userCount = 0;
+      computerCount = 0;
+
+    }  
+
   });
 }
