@@ -22,7 +22,7 @@ function printResults(player, computer){
         if((player==='rock'&&computer=='rock') || (player==='paper'&&computer=='paper') || (player==='scissors'&&computer=='scissors')){
           return `Hmmmmm, it's a tie you both chose ${computer}.`
         }else if((player==='rock'&&computer=='scissors') || (player==='paper'&&computer=='rock') || (player==='scissors'&&computer=='paper')){
-          return `You won! Amazing. You chose ${player} and the dumb computer chose ${computer}.`
+          return `You won! Amazing. You chose ${player} and the computer chose ${computer}.`
         }else if((player==='scissors'&&computer=='rock') || (player==='rock'&&computer=='paper') || (player==='paper'&&computer=='scissors')){
           return `Oh no! You lost. You chose ${player} and the computer chose ${computer}.`
         }else{
@@ -55,6 +55,8 @@ for(let i=0; i<choiceSet.length; i++){
   const btn = document.getElementById(choiceSet[i]);
   btn.addEventListener('click', () => {
     
+    const restultOutput = document.querySelector('#results');
+    restultOutput.setAttribute('style', 'color: black;');  
 
     let gameResult = playGame(choiceSet[i])
     
@@ -73,11 +75,13 @@ for(let i=0; i<choiceSet.length; i++){
 
     if(userCount===5 || computerCount==5){
       
-      const restultOutput = document.querySelector('#results');
       if(computerCount>userCount){
-        restultOutput.textContent = "Game Over Mother Fucker. You lost.";
-      }else{
-        restultOutput.textContent = "Game Over. You beat the roobits!";
+        restultOutput.setAttribute('style', 'color: #f99e91;'); 
+        restultOutput.textContent = "Game Over. You lost :("; 
+      }else{ 
+        restultOutput.setAttribute('style', 'color: #4974a4;'); 
+        restultOutput.textContent = "Game Over! You beat the computer!";
+
       }
 
       userCount = 0;

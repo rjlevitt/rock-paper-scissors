@@ -23,3 +23,7 @@ html {
   color: #4974a4;
   text-transform: capitalize;
 }
+
+.font-normal {
+  font-weight: normal !important;
+}
