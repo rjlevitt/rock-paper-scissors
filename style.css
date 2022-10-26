@@ -6,6 +6,32 @@ html {
   margin-top: 35px;
 }
 
+.mt-50{
+  margin-top: 50px;
+}
+
+
+.mt-8{
+  margin: 0;
+  margin-top: 8px;
+}
+
+.m-0{
+  margin: 0;
+}
+
+
+.blue-tile{
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #b3cde0;
+}
+
+
+.text-center{
+  text-align: center;
+}
+
 .game-container{
   width: 700px;
   margin: 50px auto;
@@ -21,36 +47,37 @@ html {
 
 .result-grid {
   display: grid;
-  grid-template-columns: 100px 100px;
+  grid-template-columns: 125px 125px 400px;
   grid-template-rows: auto;
   gap: 50px;
 }
 
 
 .select-btn {
-  border: solid black 2px;
+  border: rgb(190,190,190) 2px solid;
+  cursor: pointer;
+  background: rgb(245,245,245);
   padding: 14px;
   position: relative;
   top: 0;
   transition: top ease 0.25s;
   border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 12px;
 }
 
 .select-btn:hover {
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 12px;
-  background-color: #f99e91;
+  background: rgb(230,230,230);
   top: -3px;
   offset: 3px 0;
 }
 
 .score-board{
-  background-color: #4974a4;
-  color: white;
+  background: rgb(245,245,245);
+  color: black;
   padding: 8px 16px;
   border-radius: 8px;
-  border: black solid 2px;
   display: inline-block;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 12px;
+  box-shadow: rgba(30, 30, 30, 0.1) 0px 6px 12px;
 }
 
 
@@ -61,4 +88,25 @@ html {
 
 .font-normal {
   font-weight: normal !important;
+}
+
+button{
+  border: rgb(190,190,190) 2px solid;
+  font-weight: bold;
+  color: black;
+  background: rgb(245,245,245);
+  border-radius: 8px;
+  padding: 20px 12px;
+  position: relative;
+  top: 0;
+  transition: top ease 0.25s;
+  border-radius: 8px;
+}
+
+
+button:hover {
+  cursor: pointer;
+  background: rgb(230,230,230);
+  top: -3px;
+  offset: 3px 0;
 }

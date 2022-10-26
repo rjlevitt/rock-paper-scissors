@@ -85,10 +85,10 @@ for(let i=0; i<choiceSet.length; i++){
     if(userCount===5 || computerCount==5){
       
       if(computerCount>userCount){
-        restultOutput.setAttribute('style', 'color: #f99e91;'); 
+        restultOutput.setAttribute('style', 'color: #E32636;'); 
         restultOutput.textContent = "Game Over. You lost :("; 
       }else{ 
-        restultOutput.setAttribute('style', 'color: #4974a4;'); 
+        restultOutput.setAttribute('style', 'color: #005b96;'); 
         restultOutput.textContent = "Game Over! You beat the computer!";
 
       }

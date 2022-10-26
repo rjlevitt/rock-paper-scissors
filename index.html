@@ -26,24 +26,27 @@
             </div>
         </div>
         <div id="result-imgs" style="display: None;">
-            <div  class="result-grid mt-35" >
-                <div>
-                    <h3>User</h3>
+            <div  class="result-grid mt-50">
+                <div class="text-center blue-tile">
+                    <h4 class="m-0">USER</h4>
                     <img id="user-icon" src="./imgs/scissors.svg">
                 </div>
-                <div>
-                    <h3>Computer</h3>
+                <div class="text-center blue-tile">
+                    <h4 class="m-0 ">COMPUTER</h4>
                     <img id="computer-icon" src="./imgs/scissors.svg">
                 </div>
+                <div class="score-board">
+                    <h3 class="mt-8" id="results"></h3>
+                    <h3 class="mt-8" id="user-score" class="font-normal"></h3>
+                    <h3 class="mt-8" id="computer-score" class="font-normal"></h3>
+                </div>
             </div>
-            <div>
-                <h2 id="results"></h2>
+            <div class="mt-35">
+                <button onClick="window.location.reload();">REFRESH</button>
             </div>
-            <div class="score-board">
-                <h2 id="user-score" class="font-normal"></h2>
-                <h2 id="computer-score" class="font-normal"></h2>
-            </div>
+            
         </div>    
+
     </div>
     
     
