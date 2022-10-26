@@ -2,22 +2,57 @@ html {
   font-family: "Nunito", sans-serif;
 }
 
-.container {
+.mt-35{
+  margin-top: 35px;
+}
+
+.game-container{
+  width: 700px;
+  margin: 50px auto;
+
+}
+
+.img-grid {
   display: grid;
   grid-template-columns: 150px 150px 150px;
   grid-template-rows: auto;
   gap: 25px;
 }
 
+.result-grid {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-template-rows: auto;
+  gap: 50px;
+}
+
+
 .select-btn {
   border: solid black 2px;
   padding: 14px;
+  position: relative;
+  top: 0;
+  transition: top ease 0.25s;
+  border-radius: 8px;
 }
 
 .select-btn:hover {
-  padding: 2px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 12px;
   background-color: #f99e91;
+  top: -3px;
+  offset: 3px 0;
 }
+
+.score-board{
+  background-color: #4974a4;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: black solid 2px;
+  display: inline-block;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 12px;
+}
+
 
 .choice {
   color: #4974a4;

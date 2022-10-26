@@ -20,11 +20,11 @@ function gameResults(player, computer){
 function printResults(player, computer){
         // evaluate game outcome based on player and computer choice
         if((player==='rock'&&computer=='rock') || (player==='paper'&&computer=='paper') || (player==='scissors'&&computer=='scissors')){
-          return `Hmmmmm, it's a tie you both chose ${computer}.`
+          return "Hmmmmm, it's a tie."
         }else if((player==='rock'&&computer=='scissors') || (player==='paper'&&computer=='rock') || (player==='scissors'&&computer=='paper')){
-          return `You won! Amazing. You chose ${player} and the computer chose ${computer}.`
+          return 'You won! Amazing.'
         }else if((player==='scissors'&&computer=='rock') || (player==='rock'&&computer=='paper') || (player==='paper'&&computer=='scissors')){
-          return `Oh no! You lost. You chose ${player} and the computer chose ${computer}.`
+          return 'Oh no! You lost.'
         }else{
           return "error"
         }
@@ -37,6 +37,15 @@ function playGame(playerChoice){
   // generate computer choice, prompt user for their choice, evaluate outcome, and return results
   let computerChoice = computerPlay();
   playerChoice = playerChoice.toLowerCase();
+
+  var resultImgs = document.querySelector("#result-imgs");
+  resultImgs.style.display = "block"
+
+  var userImg = document.querySelector("#user-icon");
+  var computerImg = document.querySelector("#computer-icon");
+
+  userImg.src = `./imgs/${playerChoice}.svg`
+  computerImg.src = `./imgs//${computerChoice}.svg`
 
   // print results to the screen
   const restultOutput = document.querySelector('#results');
